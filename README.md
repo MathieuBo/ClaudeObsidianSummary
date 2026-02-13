@@ -2,10 +2,12 @@
 
 A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that turns any conversation into a structured Obsidian-compatible markdown note. Invoke it with `/summary` at the end of a session to generate a note with YAML frontmatter, tags, and sections for key points, code outputs, and next steps — saved directly to your vault.
 
+Built to leverage [obsidian-skills](https://github.com/kepano/obsidian-skills/tree/main) and [Obsidian CLI](https://help.obsidian.md/cli) but can also simply write the file in your vault as pure markdown.
+
 ## Features
 
 - Proposes a title, summary, and keywords for approval before writing
-- Outputs Obsidian-flavored markdown with `Topic` and `Type` frontmatter
+- Outputs Obsidian-flavored markdown with `Topic` and `Type` frontmatter - which will be useful to build an Obsidian base
 - Consistent template: Summary, Initial Prompt, Key Points, Code/Outputs, Next Steps, Context
 - Saves notes to your vault's `claude/notes` folder
 
