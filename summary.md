@@ -1,16 +1,32 @@
-Summarise our conversation as an Obsidian-compatible markdown note. 
-Before creating the note, propose a title (max 5 words), a 10 words (max) summary, and 3 keywords. Make sure the user agrees. Always upper case the first letter of the keywords to ensure consistency. Then use obsidian skills to create a obsidian note. The note should be saved in the claude/notes folder of my vault. If the summary is long, directly write the markdown file in the directory.
+Summarise our conversation as an Obsidian-compatible markdown note.
 
-Use this exact format:
-"""
+Before creating the note, propose a title (max 5 words), a 10-word (max) summary, and 3 keywords. Always upper-case the first letter of each keyword. Wait for user approval before writing.
+
+## How to write the note
+
+**Step 1: Discover the vault.** Run `obsidian vaults verbose` to get the vault name and path. Use the first vault listed. Parse the output as TSV: `<name>\t<path>`.
+
+**Step 2: Create the note using the Obsidian CLI.**
+
+```
+obsidian create vault=<name> path="claude/notes/<Title>.md" content="<content>"
+```
+
+**Step 3 (fallback only):** If the content is too long for a single CLI argument (over ~4000 chars), write the file directly to `<vault_path>/claude/notes/<Title>.md` using the path obtained in Step 1.
+
+## Note format
+
+Use this exact template:
+
+```
 ---
 Topic: "<10 words summary>"
-Type: "<Either Analysis or Literature or Exploration>"
+Type: "<Analysis | Literature | Exploration>"
 ---
 
 Tags: #<Keyword1> #<Keyword2> #<Keyword3>
 
-# Title
+# <Title>
 
 ## Summary
 <2-3 sentence high-level summary>
@@ -29,4 +45,4 @@ Tags: #<Keyword1> #<Keyword2> #<Keyword3>
 
 ## Context
 <any important context for future reference>
-"""
+```
